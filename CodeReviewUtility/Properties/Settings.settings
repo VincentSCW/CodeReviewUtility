@@ -1,0 +1,69 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CodeReviewUtility.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="StoreLocation" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="CodeReviewWindowWidth" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
+    <Setting Name="CodeReviewWindowHeight" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">700</Value>
+    </Setting>
+    <Setting Name="CreateCodeReviewWindowHeight" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">700</Value>
+    </Setting>
+    <Setting Name="CreateCodeReviewWindowWidth" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
+    <Setting Name="SourceLocation" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SendByEmail" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="LastUpdateCheck" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UseSVNComparer" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AlternateComparerPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DisplayItemsPopupWindowTop" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">350</Value>
+    </Setting>
+    <Setting Name="DisplayItemsPopupWindowLeft" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">750</Value>
+    </Setting>
+    <Setting Name="MainWindowTop" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">200</Value>
+    </Setting>
+    <Setting Name="MainWindowLeft" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">200</Value>
+    </Setting>
+    <Setting Name="EmailAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UserName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Password" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UpdatesLocation" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ftp://129.221.31.86/ftp/Code Review Utility Installer/Updates</Value>
+    </Setting>
+    <Setting Name="ShowAuthorsCheckListAtStartup" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ShowReviewersCheckListAtStartup" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="PreferredTool" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Git</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2DA0CB5A-B1C3-49BB-84D9-A5A40AB849B8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Utility.Library</RootNamespace>
+    <AssemblyName>Utility.Library</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\Utility.Library.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;c:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;c:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Utility.Library.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;c:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;c:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\Utility.Library.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;c:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;c:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Utility.Library.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;c:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets;c:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;c:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Attributes\LocalizableDescriptionAttribute.cs" />
+    <Compile Include="Commands\SimpleCommand.cs" />
+    <Compile Include="Commands\WeakEvents\WeakEvent.cs" />
+    <Compile Include="Commands\WeakEvents\WeakEventAction.cs" />
+    <Compile Include="Configuration\ManagerCollection.cs" />
+    <Compile Include="Configuration\ManagerItem.cs" />
+    <Compile Include="Configuration\SourceControlMgrContainer.cs" />
+    <Compile Include="Configuration\SourceControlMgrSection.cs" />
+    <Compile Include="Controls\Behaviours\DialogCloser.cs" />
+    <Compile Include="Controls\Behaviours\MultiSelectorBehaviours.cs" />
+    <Compile Include="Controls\Behaviours\PasswordBoxAssistant.cs" />
+    <Compile Include="Controls\Behaviours\SelectorDoubleClickBehavior.cs" />
+    <Compile Include="Controls\Behaviours\TwoListSynchronizer.cs" />
+    <Compile Include="Controls\CueBannerManager.cs" />
+    <Compile Include="Controls\FileBrowser\FileBrowserControl.xaml.cs">
+      <DependentUpon>FileBrowserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FolderBrowser\FolderBrowserControl.xaml.cs">
+      <DependentUpon>FolderBrowserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FolderBrowser\FolderBrowserDialog.cs" />
+    <Compile Include="Controls\ListView\GridViewColumnVisibilityManager.cs" />
+    <Compile Include="Controls\ListView\ListView.cs" />
+    <Compile Include="Controls\ListView\ListViewSorter.cs" />
+    <Compile Include="Controls\ListView\SortableGridViewColumn.cs" />
+    <Compile Include="Controls\RichTextBoxEditor\FlowDocumentToRTFConverter.cs" />
+    <Compile Include="Controls\RichTextBoxEditor\FlowDocumentXamlToHtmlConverter.cs" />
+    <Compile Include="Controls\RichTextBoxEditor\RichTextBoxEditor.xaml.cs">
+      <DependentUpon>RichTextBoxEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SearchTextBox.cs" />
+    <Compile Include="Controls\TabControl\TabControl.cs" />
+    <Compile Include="Controls\TextboxWithPopup.xaml.cs">
+      <DependentUpon>TextboxWithPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TextBox\AutoComplete.xaml.cs">
+      <DependentUpon>AutoComplete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TextBox\AutoCompleteFilterPathCollection.cs" />
+    <Compile Include="Controls\TextBox\ControlUnderAutoComplete.cs" />
+    <Compile Include="Controls\TextBox\FileFolderSelectSource.cs" />
+    <Compile Include="Controls\TextBox\SelectSource.cs" />
+    <Compile Include="Controls\WindowButtonsGroupCtrl.xaml.cs">
+      <DependentUpon>WindowButtonsGroupCtrl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Window\AboutBox.xaml.cs">
+      <DependentUpon>AboutBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Window\SystemMenuItem.cs" />
+    <Compile Include="Controls\Window\SystemMenuWindow.cs" />
+    <Compile Include="Controls\Window\Window.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\EnumResourceTypeConverter.cs" />
+    <Compile Include="Internal\Win32\Enums.cs" />
+    <Compile Include="Internal\Win32\NativeMethods.cs" />
+    <Compile Include="Internal\Win32\Structs.cs" />
+    <Compile Include="Misc\AssemblyHelper.cs" />
+    <Compile Include="Misc\EmailClient.cs" />
+    <Compile Include="Misc\EnumHelper.cs" />
+    <Compile Include="Misc\FileDownLoader.cs" />
+    <Compile Include="Misc\FileSystemWatcher.cs" />
+    <Compile Include="Misc\Help.cs" />
+    <Compile Include="Misc\PasswordProtector.cs" />
+    <Compile Include="Misc\ProcessHelper.cs" />
+    <Compile Include="Misc\SingleInstanceApplication\ApplicationInstanceManager.cs" />
+    <Compile Include="Misc\SingleInstanceApplication\InstanceProxy.cs" />
+    <Compile Include="Misc\WebClient.cs" />
+    <Compile Include="UpdateManager\UpdateManager.cs" />
+    <Compile Include="Misc\FileSystem.cs" />
+    <Compile Include="Misc\FtpClient.cs" />
+    <Compile Include="Misc\IconReader.cs" />
+    <Compile Include="Misc\PropertyObserver.cs" />
+    <Compile Include="Misc\SystemIconsImageList.cs" />
+    <Compile Include="Misc\XamlToHtmlParser\HtmlCssParser.cs" />
+    <Compile Include="Misc\XamlToHtmlParser\HtmlFromXamlConverter.cs" />
+    <Compile Include="Misc\XamlToHtmlParser\HtmlLexicalAnalyzer.cs" />
+    <Compile Include="Misc\XamlToHtmlParser\HtmlParser.cs" />
+    <Compile Include="Misc\XamlToHtmlParser\HtmlSchema.cs" />
+    <Compile Include="Misc\XamlToHtmlParser\HtmlTokenType.cs" />
+    <Compile Include="Misc\XamlToHtmlParser\HtmlToXamlConverter.cs" />
+    <Compile Include="Misc\ZipUtil.cs" />
+    <Compile Include="UpdateManager\UpdateWindow.xaml.cs">
+      <DependentUpon>UpdateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateManager\UpdateWindowDataModel.cs" />
+    <Page Include="Controls\FileBrowser\FileBrowserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\FolderBrowser\FolderBrowserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\RichTextBoxEditor\RichTextBoxEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\TextboxWithPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TextBox\AutoComplete.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\WindowButtonsGroupCtrl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Window\AboutBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="BusinessObjects\ViewModelBase.cs" />
+    <Page Include="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateManager\UpdateWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\RichTextBoxEditor\Images\aligncenter.png" />
+    <Resource Include="Controls\RichTextBoxEditor\Images\alignjustify.png" />
+    <Resource Include="Controls\RichTextBoxEditor\Images\alignleft.PNG" />
+    <Resource Include="Controls\RichTextBoxEditor\Images\alignright.png" />
+    <Resource Include="Controls\RichTextBoxEditor\Images\codeblock.png" />
+    <Resource Include="Controls\RichTextBoxEditor\Images\codeinline.png" />
+    <Resource Include="Controls\RichTextBoxEditor\Images\editcopy.png" />
+    <Resource Include="Controls\RichTextBoxEditor\Images\editcut.png" />
+    <Resource Include="Controls\RichTextBoxEditor\Images\editpaste.png" />
+    <Resource Include="Controls\RichTextBoxEditor\Images\editredo.png" />
+    <Resource Include="Controls\RichTextBoxEditor\Images\editundo.png" />
+    <Resource Include="Controls\RichTextBoxEditor\Images\filesave.png" />
+    <Resource Include="Controls\RichTextBoxEditor\Images\fontbold.png" />
+    <Resource Include="Controls\RichTextBoxEditor\Images\fontgrow.png" />
+    <Resource Include="Controls\RichTextBoxEditor\Images\fontitalic.png" />
+    <Resource Include="Controls\RichTextBoxEditor\Images\fontshrink.png" />
+    <Resource Include="Controls\RichTextBoxEditor\Images\fontunderline.png" />
+    <Resource Include="Controls\RichTextBoxEditor\Images\indentdecrease.png" />
+    <Resource Include="Controls\RichTextBoxEditor\Images\indentincrease.png" />
+    <Resource Include="Controls\RichTextBoxEditor\Images\listbullets.png" />
+    <Resource Include="Controls\RichTextBoxEditor\Images\listnumbers.png" />
+    <Resource Include="Controls\RichTextBoxEditor\Images\normaltext.png" />
+    <Resource Include="Controls\RichTextBoxEditor\Images\separator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Information.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\clear.png" />
+    <Resource Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utility.Interface\Utility.Interface.csproj">
+      <Project>{BD56B7D0-6B30-4DD7-B054-C3338BEC0AF6}</Project>
+      <Name>Utility.Interface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

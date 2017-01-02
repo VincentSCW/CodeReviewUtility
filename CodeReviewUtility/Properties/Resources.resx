@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Label_About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Label_Add" xml:space="preserve">
+    <value>Add...</value>
+  </data>
+  <data name="Label_AddedChangedTests" xml:space="preserve">
+    <value>Added/Changed Tests</value>
+  </data>
+  <data name="Label_ApplyPatch" xml:space="preserve">
+    <value>Apply Patch...</value>
+  </data>
+  <data name="Label_AreSolutionsBuilding" xml:space="preserve">
+    <value>Are Solutions (Debug/Release) Building</value>
+  </data>
+  <data name="Label_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Label_CheckForUpdates" xml:space="preserve">
+    <value>Check for Updates...</value>
+  </data>
+  <data name="Label_CheckinComments" xml:space="preserve">
+    <value>Checkin Comments</value>
+  </data>
+  <data name="Label_CodeCommitCommentsUtility" xml:space="preserve">
+    <value>CodeReviewCommentsUtility</value>
+  </data>
+  <data name="Label_Commit" xml:space="preserve">
+    <value>Commit...</value>
+  </data>
+  <data name="Label_CommitPath" xml:space="preserve">
+    <value>Commit Path</value>
+  </data>
+  <data name="Label_Compare" xml:space="preserve">
+    <value>Compare...</value>
+  </data>
+  <data name="Label_Copy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="Label_CreateCodeReviewUtility" xml:space="preserve">
+    <value>Create Code Review Utility</value>
+  </data>
+  <data name="Label_Cue_Cuase" xml:space="preserve">
+    <value>What is the cause? </value>
+  </data>
+  <data name="Label_Cue_Description" xml:space="preserve">
+    <value>CR or PR Desciption/Heading/Brief description of the problem (or change to be implemented)]</value>
+  </data>
+  <data name="Label_Cue_Document_Number" xml:space="preserve">
+    <value>CR or PR number</value>
+  </data>
+  <data name="Label_Cue_SuiteTestCaseName" xml:space="preserve">
+    <value>Suite::TestCaseName (if test case is not added/modified, why not?)</value>
+  </data>
+  <data name="Label_Cue_TestSuiteNames" xml:space="preserve">
+    <value>Test Suite names (if not run, why not?)</value>
+  </data>
+  <data name="Label_DoAllTestsPass" xml:space="preserve">
+    <value>Do All Tests Pass</value>
+  </data>
+  <data name="Label_DocumentationChanges" xml:space="preserve">
+    <value>Documentation Changes</value>
+  </data>
+  <data name="Label_DoubleClickToSeeDiff" xml:space="preserve">
+    <value>Files to commit [double click on a file to see the difference(s)]</value>
+  </data>
+  <data name="Label_FileName" xml:space="preserve">
+    <value>FileName</value>
+  </data>
+  <data name="Label_Files" xml:space="preserve">
+    <value>Files</value>
+  </data>
+  <data name="Label_Heading" xml:space="preserve">
+    <value>Heading</value>
+  </data>
+  <data name="Label_Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="Label_ImpactedTeams" xml:space="preserve">
+    <value>Impacted Teams</value>
+  </data>
+  <data name="Label_InstallationChanges" xml:space="preserve">
+    <value>Installation Changes</value>
+  </data>
+  <data name="Label_ProblemChange" xml:space="preserve">
+    <value>Problem/Change</value>
+  </data>
+  <data name="Label_ReadmeChanges" xml:space="preserve">
+    <value>Readme Changes</value>
+  </data>
+  <data name="Label_ReasonCause" xml:space="preserve">
+    <value>Reason/Cause</value>
+  </data>
+  <data name="Label_ReviewDetails" xml:space="preserve">
+    <value>Review Details</value>
+  </data>
+  <data name="Label_Reviewers" xml:space="preserve">
+    <value>Reviewer(s)</value>
+  </data>
+  <data name="Label_Send" xml:space="preserve">
+    <value>Send...</value>
+  </data>
+  <data name="Label_SendViaOfficeOutlook" xml:space="preserve">
+    <value>Send via Office Outlook</value>
+  </data>
+  <data name="Label_Settings" xml:space="preserve">
+    <value>Settings...</value>
+  </data>
+  <data name="Label_ShowLog" xml:space="preserve">
+    <value>Show Log...</value>
+  </data>
+  <data name="Label_ShowUnversionedFiles" xml:space="preserve">
+    <value>Show Unversioned Files</value>
+  </data>
+  <data name="Label_Solution" xml:space="preserve">
+    <value>Solution</value>
+  </data>
+  <data name="Label_SourceFolder" xml:space="preserve">
+    <value>Source Folder</value>
+  </data>
+  <data name="Label_State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="Label_StoreOrSendViaOfficeOutlook" xml:space="preserve">
+    <value>Send via Outlook</value>
+  </data>
+  <data name="Label_SVN" xml:space="preserve">
+    <value>SVN</value>
+  </data>
+  <data name="Label_TaskId" xml:space="preserve">
+    <value>Task Id</value>
+  </data>
+  <data name="Label_TaskType" xml:space="preserve">
+    <value>Task Type</value>
+  </data>
+  <data name="Label_TestsRun" xml:space="preserve">
+    <value>Tests run</value>
+  </data>
+  <data name="Label_Title_CodeReviewCommentsUtility" xml:space="preserve">
+    <value>Code Review Comments Utility</value>
+  </data>
+  <data name="Label_UnitTests" xml:space="preserve">
+    <value>Unit Tests</value>
+  </data>
+  <data name="Label_View" xml:space="preserve">
+    <value>View..</value>
+  </data>
+  <data name="Label_ActionCodeReview" xml:space="preserve">
+    <value>Action: Code Review for {0} - {1}</value>
+  </data>
+  <data name="Label_ActionCodeReviewComments" xml:space="preserve">
+    <value>Action : Code Review Comments for {0} - {1}</value>
+  </data>
+  <data name="Label_CannotCreateEmailMsg" xml:space="preserve">
+    <value>Unable to create Outlook Email Message</value>
+  </data>
+  <data name="Label_CheckinCommentsPreview" xml:space="preserve">
+    <value>Checkin Comments Preview</value>
+  </data>
+  <data name="Label_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Label_Error_NoComparer" xml:space="preserve">
+    <value>No Comparer specified (Go To Settings)</value>
+  </data>
+  <data name="Label_Preview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="Label_ReviewCommitBody" xml:space="preserve">
+    <value>Description of the fix/changes made in the task{0}{1}{0}{0}Code review comments:{0}1.	[Comments]{0}2.	[Comments]{0}{0}Unaddressed Code review comments (if any):</value>
+  </data>
+  <data name="Label_SelectionOverview" xml:space="preserve">
+    <value>{0} files selected, {1} files in total</value>
+  </data>
+  <data name="Label_SelectOpeningAction" xml:space="preserve">
+    <value>Select action for opening Review Task: "{0}"</value>
+  </data>
+  <data name="Label_ToDo" xml:space="preserve">
+    <value>[ToDo]</value>
+  </data>
+  <data name="Label_Unknow" xml:space="preserve">
+    <value>&lt;unknow&gt;</value>
+  </data>
+  <data name="Label_Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Label_Revert" xml:space="preserve">
+    <value>Revert</value>
+  </data>
+  <data name="Label_ShowAtStartup" xml:space="preserve">
+    <value>Show At Startup</value>
+  </data>
+  <data name="Label_ShowCheckList" xml:space="preserve">
+    <value>Checklist...</value>
+  </data>
+  <data name="Label_CreateCodeReviewBody" xml:space="preserve">
+    <value>Issue: [TODO - explain the problem]{0}
+Analysis: [TODO - what is the analysis? where is the problem?]{0}
+Solution: [TODO - what is the proposed solution, if there were multiple explain this and explain why you have chosen this solution]{0}</value>
+  </data>
+  <data name="Label_PreReqSoftware" xml:space="preserve">
+    <value>SubVersion and/or TortoiseSVN is not Installed!
+Required Software:
+- SubVersion Client	http://www.sliksvn.com/en/download
+- Tortoise SVN 	http://tortoisesvn.net/downloads.html</value>
+  </data>
+  <data name="Label_ProductName" xml:space="preserve">
+    <value>Code Review Utility</value>
+  </data>
+  <data name="Label_CheckAll" xml:space="preserve">
+    <value>Check All</value>
+  </data>
+  <data name="Label_CodeReviewUtility" xml:space="preserve">
+    <value>Code Review Utility</value>
+  </data>
+  <data name="Label_Menu_About" xml:space="preserve">
+    <value>About...</value>
+  </data>
+  <data name="Label_Menu_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Label_Menu_File" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="Label_Menu_Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="Label_Menu_Open" xml:space="preserve">
+    <value>Open...</value>
+  </data>
+  <data name="Label_Menu_Settings" xml:space="preserve">
+    <value>Settings...</value>
+  </data>
+  <data name="Label_Menu_Tools" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="Label_Menu_New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="Label_Tab_Commit" xml:space="preserve">
+    <value>Commit</value>
+  </data>
+  <data name="Label_Tab_Review" xml:space="preserve">
+    <value>Review</value>
+  </data>
+</root>

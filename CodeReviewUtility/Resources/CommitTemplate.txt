@@ -1,0 +1,16 @@
+﻿Synopsis: {Synopsis} : {TaskInfo}
+Reason/Cause{Tab}{Tab}{Cause}
+Reviewer(s):{Tab}{Tab}{Reviewers}
+Commit path:{Tab}{Tab}{SourceControlUrl}
+Solution Builds:{Tab}{SolutionBuilds}
+Impacts:
+{Tab}Installation:{Tab}{InstallationImpacted}
+{Tab}Documentation:{Tab}{DocumentationImpacted}
+{Tab}Readme:{Tab}{Tab}{ReadMeImpacted}
+Testing:
+{Tab}Tests Added/Modified:{Tab}{TestsAddedOrChanged}
+{Tab}Tests run:{Tab}{Tab}{TestsRun}
+{Tab}Tests Pass:{Tab}{Tab}{AllTestsPass}
+
+{Comments}
+

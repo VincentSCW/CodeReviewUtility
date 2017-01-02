@@ -1,0 +1,289 @@
+﻿/// <copyright>
+/// Copyright ©  2012 Unisys Corporation. All rights reserved. UNISYS CONFIDENTIAL
+/// </copyright>
+using System.Linq;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using System.Windows.Input;
+
+using System.IO;
+
+using CodeReviewUtility.Svn;
+using Utility.Library.Misc;
+using Utility.Library.Commands;
+using CodeReviewUtility.Properties;
+using CodeReviewUtility.Misc;
+using System.Reflection;
+using System.Windows;
+
+namespace CodeReviewUtility.DataModels
+{
+    internal class CreateCodeReviewViewModel : CodeReviewViewModel
+    {
+        private PropertyCollectionObserver<FileViewModel> observer;
+
+        public SvnManager SvnMgr { get; private set; }
+
+        public ICommand CompareSelection { get; private set; }
+        public ICommand ShowHistorySelection { get; private set; }
+        public ICommand AddUnversionSelection { get; private set; }
+
+        public string TaskName
+        {
+            get { return this.Get<string>("TaskName");  }
+            set { this.Set<string>("TaskName", value); }
+        }
+
+        public string TaskDesciption
+        {
+            get { return this.Get<string>("TaskDesciption"); }
+            set { this.Set<string>("TaskDesciption", value); }
+        }
+
+        public bool ShowUnversionedFiles
+        {
+            get { return this.Get<bool>("ShowUnversionedFiles"); }
+            set
+            { 
+                this.Set<bool>("ShowUnversionedFiles", value);
+                if (this.StartCmd.CanExecute(null))
+                    this.StartCmd.Execute(null);
+            }
+        }
+
+        public string SelectionDetails
+        {
+            get { return this.Get<string>("SelectionDetails"); }
+            set { this.Set<string>("SelectionDetails", value); }
+        }
+
+        public CreateCodeReviewViewModel(Settings settings)
+            : base(settings)
+        {          
+            this.SvnMgr = new SvnManager("");
+            this.TargetDirectory = this.Settings.StoreLocation;
+            if(string.IsNullOrEmpty(this.TargetDirectory))
+                this.TargetDirectory = Path.GetTempPath();
+            this.SourceDirectory = this.Settings.SourceLocation;
+         
+
+            this.ShowHistorySelection = new SimpleCommand<object, object>(
+                (x) => { return this.SelectedItem != null; },
+                (x) =>
+                {
+                    this.SvnMgr.ShowLog(this.SelectedItem.FileName);
+                });
+
+            this.AddUnversionSelection = new SimpleCommand<object, object>(
+                (x) => { return this.SelectedItem != null && this.SelectedItem.State == FileModificationState.NotVersioned; },
+                (x) =>
+                {
+                    this.SvnMgr.AddNotVersioned(this.SelectedItem.FileName);
+                });
+
+            this.CompareSelection = new SimpleCommand<object, object>(
+                (x) => { return this.DoDoubleClick.CanExecute(x);  },
+                (x) =>
+                {
+                    this.DoDoubleClick.Execute(x);
+                });
+        }
+
+        protected override bool CanDoDefaultDoubleClickAction
+        {
+            get { return this.SelectedItem != null; }
+        }
+
+        protected override void DoDefaultDoubleClickAction()
+        {
+            this.SvnMgr.DiffWithBase(this.SelectedItem.FileName);
+        }
+
+        protected override bool CanFinish
+        {
+            get { return !string.IsNullOrEmpty(this.TargetDirectory) && !string.IsNullOrEmpty(this.TaskName); }
+        }
+
+        protected override void Finish()
+        {
+            this.CreateCodeReviewPackage(this.SourceDirectory, this.TargetDirectory, this.TaskName, this.TaskDesciption);
+            this.Settings.SourceLocation = this.SourceDirectory;
+            this.Settings.StoreLocation = this.TargetDirectory;
+            this.Settings.SendByEmail = this.SendByEmail;
+        }
+
+        protected override bool CanStart
+        {
+            get { return !string.IsNullOrEmpty(this.SourceDirectory) && Directory.Exists(this.SourceDirectory); }
+        }
+
+        protected override void Start()
+        {
+            if(this.SvnMgr == null || this.SourceDirectory != this.SvnMgr.SourceFolder)
+                this.SvnMgr = new SvnManager(this.SourceDirectory);
+            this.FindModification(this.SvnMgr);
+        }
+
+        private void CreateCodeReviewPackage(string source, string target, string taskname, string taskdesciption)
+        {
+            target = Path.Combine(target, taskname);
+            FileSystemHelper.DeleteFolder(target);
+
+            string dest_after = Path.Combine(target, Constants.After);
+            string dest_before = Path.Combine(target, Constants.Before);
+
+            Parallel.ForEach(this.Files.Where(f => f.Checked && MatchState(f.State)), (file) =>
+            {
+                switch (file.State)
+                {
+                    case FileModificationState.NotVersioned:
+                    case FileModificationState.Added:
+                        // file added. Copy to After
+                        this.Copy(Path.Combine(source, file.FileName), Path.Combine(dest_after, file.FileName));
+                        break;
+
+                    case FileModificationState.Deleted:
+                        // file deleted. Copy to Before
+                        // Get the file details
+                        this.GetBeforeRevision(dest_before, file);
+                        break;
+
+                    case FileModificationState.Modified:
+
+                        // Changed file.. 
+
+                        // Copy to the after
+                        // file added. Copy to After
+                        this.Copy(Path.Combine(source, file.FileName), Path.Combine(dest_after, file.FileName));
+                        this.GetBeforeRevision(dest_before, file);
+
+                        break;
+                }
+            });
+
+            OutlookHelper helper = null;
+            if (this.SendByEmail)
+            {
+                try
+                {
+                    helper = new OutlookHelper();
+                }
+                catch
+                {
+                    this.SendByEmail = false;
+                }
+            }
+
+            using(StreamWriter w = new StreamWriter(Path.Combine(target, "desciption.txt")))
+            {
+                w.WriteLine(taskdesciption);
+                try
+                {
+                    if (helper != null)
+                        w.WriteLine((string)helper.OutlookApp.Session.CurrentUser.Name);
+                    else
+                        w.WriteLine(System.Environment.UserName);
+                }
+                catch
+                { 
+                    // Ignore..
+                }
+            }
+
+            // Zip it up..
+            var zipTargetFile = Path.ChangeExtension(Path.Combine(this.TargetDirectory, taskname), Constants.ZipExt);
+            var targetFile = Path.ChangeExtension(zipTargetFile, Constants.ReviewFileExt);
+
+            FileSystemHelper.DeleteFile(zipTargetFile);
+            FileSystemHelper.DeleteFile(targetFile);
+
+            ZipUtil.CompressFolder(zipTargetFile, target);
+
+            try
+            {
+                FileSystemHelper.DeleteFile(targetFile);
+                FileSystemHelper.DeleteFile(Path.Combine(target, "desciption.txt"));
+            }
+            catch
+            {
+            }
+
+            File.Move(zipTargetFile, targetFile);
+
+            if (helper != null)
+            {
+                try
+                {
+                    Stream letterStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("CodeReviewUtility.Resources.PleaseReviewPage.htm");
+                    StreamReader reader = new StreamReader(letterStream);
+                    string body = reader.ReadToEnd();
+                    body.Replace("{0}", System.Environment.UserName);       // string.format does not work for html string..  
+
+                    helper.CreateMessage(string.Format("Action: Code Review for {0} - {1}", taskname, taskdesciption), targetFile, body);
+                }
+                catch
+                {
+                    System.Windows.MessageBox.Show("Unable to create Outlook Email Message", "Error");
+                }
+            }
+            else
+            {
+                string path = System.IO.Path.Combine(System.Environment.ExpandEnvironmentVariables("%SystemRoot%"), "Explorer.exe");
+                ProcessHelper.Execute(path, this.TargetDirectory);
+            }
+
+            // Clean up
+            FileSystemHelper.DeleteFolder(target);
+        }
+
+        private void GetBeforeRevision(string dest_before, FileViewModel file)
+        {
+            // Get the file details
+            var info_details = this.SvnMgr.GetSVNFileInfoDetails(file.FileName);
+            string revision = null;
+            info_details.TryGetValue(FileDetailInfo.Revision, out revision);
+            // Get the Before version
+            this.SvnMgr.GetFile(revision, file.FileName, Path.Combine(dest_before, file.FileName));
+        }
+
+        public override void CleanUp()
+        {
+            // Nothing to do...
+        }
+
+        private void Copy(string source, string target)
+        {
+            this.SvnMgr.EnsureExists(target);
+            if(!string.IsNullOrEmpty(Path.GetExtension(source)))
+                File.Copy(source, target, true);
+        }
+
+        private bool MatchState(FileModificationState state)
+        {            
+            bool match = state == FileModificationState.Modified || state == FileModificationState.Added || state == FileModificationState.Deleted;
+            if (!match && this.ShowUnversionedFiles)
+                match = state == FileModificationState.NotVersioned;
+
+            return match;
+        }
+
+
+        private void FindModification(SvnManager mgr)
+        {
+            if (this.observer != null)
+                this.observer.UnregisterHandler(n => n.Checked);
+
+            this.Files = new ObservableCollection<FileViewModel>(mgr.GetFiles().Where(f => MatchState(f.State)));
+            this.UpdateSelectionDetails(null);
+
+            this.observer = new PropertyCollectionObserver<FileViewModel>(this.Files)
+                 .RegisterHandler(n => n.Checked, this.UpdateSelectionDetails);
+        }
+
+        private void UpdateSelectionDetails(FileViewModel n)
+        {
+            this.SelectionDetails = string.Format("{0} files selected, {1} files in total", this.Files.Count((f) => { return f.Checked; }), this.Files.Count());
+        }
+    }
+   
+}

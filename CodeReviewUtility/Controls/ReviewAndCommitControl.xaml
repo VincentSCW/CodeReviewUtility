@@ -1,0 +1,124 @@
+﻿<UserControl x:Class="CodeReviewUtility.Controls.ReviewAndCommitControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ctrl="clr-namespace:Utility.Library.Controls;assembly=Utility.Library"
+             xmlns:ctrl_beh="clr-namespace:Utility.Library.Controls.Behaviours;assembly=Utility.Library"
+             xmlns:local="clr-namespace:CodeReviewUtility.Controls"
+             xmlns:helper="clr-namespace:CodeReviewUtility.Properties">
+    <Grid Margin="10,0, 10,0" FocusManager.FocusedElement="{Binding ElementName=editor}">
+        <Grid.Resources>
+            <!-- Value Converters -->
+            <ctrl:FlowDocumentXamlToHtmlConverter x:Key="FlowDocumentConverter"/>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"  ></RowDefinition>
+            <RowDefinition Height="100*" ></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <HeaderedContentControl Grid.Row="0" Header="{x:Static helper:Resources.Label_ReviewDetails}">
+            <local:CodeReviewTaskAndFilesCtrl
+            TitleText="{x:Static helper:Resources.Label_DoubleClickToSeeDiff}"
+            SubTitleText="{x:Static helper:Resources.Label_CheckinComments}">
+            </local:CodeReviewTaskAndFilesCtrl>
+        </HeaderedContentControl>
+
+        <TabControl Grid.Row="1" SelectedIndex="{Binding SelectedTabIndex}">
+            <TabItem Header="{x:Static helper:Resources.Label_Tab_Review}">
+                <ctrl:RichTextBoxEditor Margin="10,0" Grid.Row="1" Name="reviewEditor" ParagraphSpacing="0"
+                  Document="{Binding PackageDiscription, Converter={StaticResource FlowDocumentConverter}}"
+                  CodeControlsVisibility="Collapsed">
+                </ctrl:RichTextBoxEditor>
+            </TabItem>
+            <TabItem Header="{x:Static helper:Resources.Label_Tab_Commit}">
+                <Grid Grid.Row="2" Margin="10,0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="28"></RowDefinition>
+                        <RowDefinition Height="28"></RowDefinition>
+                        <RowDefinition Height="105"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130"></ColumnDefinition>
+                        <ColumnDefinition Width="130"></ColumnDefinition>
+                        <ColumnDefinition Width="100*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Content="{x:Static helper:Resources.Label_TaskType}"></Label>
+                    <ComboBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Width="100" IsEditable="True"  Margin="0,2"
+                      SelectedItem="{Binding Package.Synopsis}" ItemsSource="{Binding Package.PosibleSynopsis}">
+                    </ComboBox>
+
+                    <Label Grid.Row="1" Grid.Column="0" Width="150" Content="{x:Static helper:Resources.Label_Reviewers}"></Label>
+                    <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Margin="0,2" 
+                         ctrl:CueBannerManager.Cue="Who Reviewed the code?"
+                         Text="{Binding Package.Reviewers}">
+                    </TextBox>
+
+                    <HeaderedContentControl Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Header="{x:Static helper:Resources.Label_ImpactedTeams}" Margin="5,0">
+                        <StackPanel Margin="20,0">
+                            <StackPanel Orientation="Horizontal" >
+                                <Label  Width="150" Content="{x:Static helper:Resources.Label_InstallationChanges}"></Label>
+                                <CheckBox  Margin="0,5" IsChecked="{Binding Package.InstallationImpacted}" ></CheckBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" >
+                                <Label  Width="150" Content="{x:Static helper:Resources.Label_DocumentationChanges}"></Label>
+                                <CheckBox  Margin="0,5"  IsChecked="{Binding Package.DocumentationImpacted}"></CheckBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" >
+                                <Label  Width="150" Content="{x:Static helper:Resources.Label_ReadmeChanges}"></Label>
+                                <CheckBox  Margin="0,5" IsChecked="{Binding Package.ReadMeImpacted}"></CheckBox>
+                            </StackPanel>
+                        </StackPanel>
+                    </HeaderedContentControl>
+
+                    <HeaderedContentControl Grid.Row="2" Grid.Column="2" Header="{x:Static helper:Resources.Label_UnitTests}">
+                        <Grid Margin="20,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="28"></RowDefinition>
+                                <RowDefinition Height="28"></RowDefinition>
+                                <RowDefinition Height="28"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"></ColumnDefinition>
+                                <ColumnDefinition Width="100*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Row="0" Grid.Column="0" Content="{x:Static helper:Resources.Label_AddedChangedTests}"></Label>
+                            <ctrl:TextboxWithPopup Grid.Row="0" Grid.Column="1"  TextValue="{Binding Package.TestsAddedOrChanged, Mode=TwoWay}">
+                            </ctrl:TextboxWithPopup>
+
+                            <Label  Grid.Row="1" Grid.Column="0" Content="{x:Static helper:Resources.Label_TestsRun}"></Label>
+                            <ComboBox Grid.Row="1" Grid.Column="1" Text="{Binding Package.TestsRun}" Margin="0,2,20,0" Height="25" IsEditable="True">
+                            </ComboBox>
+                            <Label Grid.Row="2" Grid.Column="0" Content="{x:Static helper:Resources.Label_DoAllTestsPass}"></Label>
+                            <CheckBox  Grid.Row="2" Grid.Column="1" Margin="0,5" IsChecked="{Binding Package.AllTestsPass}"></CheckBox>
+
+                        </Grid>
+
+                    </HeaderedContentControl>
+
+                    <Label  Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Content="{x:Static helper:Resources.Label_AreSolutionsBuilding}"></Label>
+                    <CheckBox  Grid.Row="3" Grid.Column="2"  Margin="0,5" IsChecked="{Binding Package.SolutionBuilds}"></CheckBox>
+
+                    <Label  Grid.Row="4" Grid.Column="0"  Content="{x:Static helper:Resources.Label_CommitPath}"></Label>
+                    <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4"  Margin="0,2" Text="{Binding Package.SourceControlUrl}" IsEnabled="False"></TextBox>
+                    <TextBox Margin="10,0" Grid.Row="5" Grid.ColumnSpan="4" Name="commitEditor" Text="{Binding CommitComments, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                        HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                        AcceptsReturn="True"></TextBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <ctrl:WindowButtonsGroupCtrl Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+               OkCommandText="{Binding CloseButtonText}"                                     
+               HelpCommand="{Binding HelpCmd}"
+               OkCommand="{Binding DoOkCmd}">
+        </ctrl:WindowButtonsGroupCtrl>
+    </Grid>
+</UserControl>

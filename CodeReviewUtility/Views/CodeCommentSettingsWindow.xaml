@@ -1,0 +1,63 @@
+﻿<ctrl:Window x:Class="CodeReviewUtility.Views.CodeCommentSettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:helper="clr-namespace:CodeReviewUtility.Properties"             
+        xmlns:ctrl="clr-namespace:Utility.Library.Controls;assembly=Utility.Library"
+        xmlns:ctrl_beh="clr-namespace:Utility.Library.Controls.Behaviours;assembly=Utility.Library"
+        ShowInTaskbar="False"
+        ctrl_beh:DialogCloser.DialogResult="{Binding DialogResult}"        
+        Title="Code Review Utility Settings" Height="340" Width="579" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="35"/>           
+        </Grid.RowDefinitions>
+        
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50*"/>
+            </Grid.RowDefinitions>
+
+            <HeaderedContentControl Grid.Row="0" Header="Comparer Settings">
+                <StackPanel  Margin="5,5,0,0" Orientation="Vertical">
+                    <RadioButton Content="Comparer configured for Tortoise SVN" IsChecked="{Binding UseSVNComparer}" Margin="3,3"></RadioButton>
+                    <RadioButton Content="Alternate Comparer" x:Name="UseAlternateCompare" Margin="3,3">
+                        <RadioButton.Style>
+                            <Style>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=UseSVNComparer}" Value="False">
+                                        <Setter Property="RadioButton.IsChecked" Value="True" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </RadioButton.Style>
+                    </RadioButton>
+                    <ctrl:FileBrowserControl Margin="20,5, 5, 0" FileNameContent="{Binding AlternateComparerPath}"
+                    Usage="OpenFileDialog"
+                    FileFilter="Executable (*.exe)|*.exe" FileExtension=".exe"     
+                    IsEnabled="{Binding ElementName=UseAlternateCompare, Path=IsChecked}">
+                    </ctrl:FileBrowserControl>
+                </StackPanel>
+            </HeaderedContentControl>
+
+            <HeaderedContentControl Grid.Row="1" Header="Store Location">
+                <StackPanel Orientation="Vertical">
+                    <ctrl:FolderBrowserControl Margin="5,5, 5, 0" FolderNameContent="{Binding Path=StorePath, Mode=TwoWay}" />
+                </StackPanel>
+            </HeaderedContentControl>
+
+            <HeaderedContentControl Grid.Row="2" Header="Settings">
+                <StackPanel Orientation="Horizontal">
+                    
+                </StackPanel>
+            </HeaderedContentControl>
+        </Grid>
+        
+        <ctrl:WindowButtonsGroupCtrl Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+               HelpCommand="{Binding HelpCmd}"
+               OkCommand="{Binding DoOkCmd}">
+        </ctrl:WindowButtonsGroupCtrl>
+    </Grid>
+</ctrl:Window>

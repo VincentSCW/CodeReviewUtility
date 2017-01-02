@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="CodeReviewUtility.Controls.UtilityMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:helper="clr-namespace:CodeReviewUtility.Properties" 
+             mc:Ignorable="d" >
+    <Menu>
+        <MenuItem Header="{x:Static helper:Resources.Label_Menu_File}" Width="50">
+            <MenuItem Header="{x:Static helper:Resources.Label_Menu_New}" Command="ApplicationCommands.New" />
+            <MenuItem Header="{x:Static helper:Resources.Label_Menu_Open}" Command="ApplicationCommands.Open" />
+            <MenuItem Header="{x:Static helper:Resources.Label_Menu_Close}" Command="ApplicationCommands.Close" />
+        </MenuItem>
+        <MenuItem Header="{x:Static helper:Resources.Label_Menu_Tools}" Width="50">
+            <MenuItem Header="{x:Static helper:Resources.Label_Menu_Settings}"/>
+        </MenuItem>
+        <MenuItem Header="{x:Static helper:Resources.Label_Menu_Help}" Width="50">
+            <MenuItem Header="{x:Static helper:Resources.Label_CheckForUpdates}"/>
+            <MenuItem Header="{x:Static helper:Resources.Label_Menu_About}"/>
+        </MenuItem>
+    </Menu>
+</UserControl>

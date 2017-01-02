@@ -1,0 +1,39 @@
+﻿<ctrl:SystemMenuWindow x:Class="CodeReviewUtility.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ctrl="clr-namespace:Utility.Library.Controls;assembly=Utility.Library"
+        xmlns:ctrl_beh="clr-namespace:Utility.Library.Controls.Behaviours;assembly=Utility.Library"    
+        xmlns:helper="clr-namespace:CodeReviewUtility.Properties"   
+        xmlns:utl_ctrl="clr-namespace:CodeReviewUtility.Controls"
+        Title="{x:Static helper:Resources.Label_CodeReviewUtility}"
+        Top="{Binding Source={StaticResource Settings}, Path=Default.MainWindowTop, Mode=TwoWay}" 
+        Left="{Binding Source={StaticResource Settings}, Path=Default.MainWindowLeft, Mode=TwoWay}"                        
+        Height="{Binding Source={StaticResource Settings}, Path=Default.CreateCodeReviewWindowHeight, Mode=TwoWay}" 
+        Width="{Binding Source={StaticResource Settings}, Path=Default.CreateCodeReviewWindowWidth, Mode=TwoWay}"
+        x:Name="mainWindow"                       
+        Icon="/CodeReviewUtility;component/App.ico">
+    <ctrl:SystemMenuWindow.CommandBindings>
+        <CommandBinding Command="Open" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed" />
+        <CommandBinding Command="Close" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed" />
+        <CommandBinding Command="Help" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed" />
+        <CommandBinding Command="New" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed" />
+    </ctrl:SystemMenuWindow.CommandBindings>
+    <ctrl:SystemMenuWindow.MenuItems>
+        <ctrl:SystemMenuItem Command="{Binding AboutCommand}" CommandParameter="{Binding ElementName=mainWindow}" Header="{x:Static helper:Resources.Label_About}" Id="100" />
+        <ctrl:SystemMenuItem Command="{Binding CheckForUpdatesCommand}" CommandParameter="{Binding ElementName=mainWindow}" Header="{x:Static helper:Resources.Label_CheckForUpdates}" Id="101" />
+        <ctrl:SystemMenuItem IsSeparator="true" />
+        <ctrl:SystemMenuItem Command="{Binding SettingsCommand}" CommandParameter="{Binding ElementName=mainWindow}" Header="{x:Static helper:Resources.Label_Settings}" Id="102" />
+    </ctrl:SystemMenuWindow.MenuItems>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <utl_ctrl:UtilityMenu Grid.Row="0"></utl_ctrl:UtilityMenu>
+
+        <ContentControl Grid.Row="1" x:Name="contentCtrl" DataContext="{Binding CodeReviewModel}">
+            
+        </ContentControl>
+    </Grid>
+</ctrl:SystemMenuWindow>
